@@ -10,10 +10,11 @@ const AppText = ({ children, ...props }: AppTextProps) => {
   return (
     <Text
       color={"#fff"}
-      fontFamily={"'Montserrat', sans-serif"}
+      fontFamily={"'Chiqueta', sans-serif"}
       fontSize={16}
       cursor={"pointer"}
       {...props}
+      textAlign={"center"}
     >
       {children}
     </Text>

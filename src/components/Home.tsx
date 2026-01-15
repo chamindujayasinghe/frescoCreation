@@ -2,6 +2,29 @@ import { Box, Flex } from "@chakra-ui/react";
 import AppText from "./AppText";
 import { useEffect, useRef, useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
+import { keyframes } from "@emotion/react";
+
+const fadeUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const fadeUpDelayed = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 const Home = () => {
   const frescoRef = useRef<HTMLDivElement>(null);
@@ -63,7 +86,12 @@ const Home = () => {
       height="82vh"
       position="relative"
     >
-      <Box ref={frescoRef} display="inline-block" whiteSpace="nowrap">
+      <Box
+        ref={frescoRef}
+        display="inline-block"
+        whiteSpace="nowrap"
+        animation={`${fadeUp} 1s ease-out forwards`}
+      >
         <AppText
           fontSize={{ base: 55, md: 70, lg: 110 }}
           fontWeight="bold"
@@ -82,6 +110,7 @@ const Home = () => {
       >
         {"CREATION".split("").map((char, idx) => (
           <AppText
+            animation={`${fadeUpDelayed} 0.6s ease-out forwards`}
             key={idx}
             fontSize={{ base: 30, lg: 70 }}
             color="#837e7eff"
